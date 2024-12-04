@@ -1,22 +1,55 @@
 # # python calculator
 
+# options = input("Enter an operator (+ - * /): ")
+# num1 = float(input("Enter first number: "))
+# num2 = float(input("Enter second number: "))
+
+# if options == "+":
+#     print(round(num1 + num2, 1))
+# elif options == "-":
+#     print(round(num1 - num2, 1))
+# elif options == "*":
+#     print(round(num1 * num2), 1)
+# elif options == "/":
+#     if num2 == 0:
+#         print("Cannot divide by zero")
+#     else:
+#         print(round(num1 / num2, 1))
+# else:
+#     print("Invalid operator")
+
+
+def add(a, b):
+    return round(a + b, 1)
+
+def subtract(a, b):
+    return round(a - b, 1)
+
+def multiply(a, b):
+    return round(a * b, 1)
+
+def divide(a, b):
+    if b == 0:
+        return "Cannot divide by zero"
+    return round(a / b, 1)
+
+operations = {
+    "+": add,
+    "-": subtract,
+    "*": multiply,
+    "/": divide
+}
+
 options = input("Enter an operator (+ - * /): ")
 num1 = float(input("Enter first number: "))
 num2 = float(input("Enter second number: "))
 
-if options == "+":
-    print(round(num1 + num2, 1))
-elif options == "-":
-    print(round(num1 - num2, 1))
-elif options == "*":
-    print(round(num1 * num2), 1)
-elif options == "/":
-    if num1 == 0 or num2 == 0:
-        print("Cannot divide by zero")
-    else:
-        print(round(num1 / num2, 1))
+if options in operations:
+    result = operations[options](num1, num2)
+    print(result)
 else:
     print("Invalid operator")
+
 
 
 # # Importing the tkinter module
